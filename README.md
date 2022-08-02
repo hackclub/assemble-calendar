@@ -1,43 +1,24 @@
-# Express Typescript Simple Boilerplate
+# Assemble Calendar
 
-The simple boilerplate for creating up a quick [Express](https://expressjs.com/) server with [TypeScript](https://www.typescriptlang.org/).
+Just a JSON/ICS representation of the Run of Show spreadsheet.
 
-## Using the boilerplate
+## How do i use it, huh?
 
-```sh
-# clone the repo (replace `my-app` with the name of your application)
-git clone https://github.com/garyhtou/express-typescript-simple-boilerplate my-app
+Replace my name with yours! It should be the same as your name in the "header" row of the spreadsheet.
 
-# enter the directory
-cd my-app
+- Personal Calendar: `https://assemble-calendar.hosted.garytou.dev/calendar/Gary?authToken=v9n8Mwe84TG`
+- Personal JSON: `https://assemble-calendar.hosted.garytou.dev/json/Gary?authToken=v9n8Mwe84TG`
 
-# install dependencies
-yarn
 
-# run the server
-yarn dev
+#### Other links:
 
-# Open https://localhost:3000 in your browser
-
-# the server will refresh on any saved changes
-```
-
-You will probably also want to customize the `package.json` to reflect
-information about your application.
-
-To start setting up your routes, edit [`src/router.ts`](src/router.ts).
-
-## Design Choices
-
-- [Express.js](https://expressjs.com/) server
-- [Typescript](https://www.typescriptlang.org/) language
-- CORS (Cross-Origin Resource Sharing) and CROP (Cross-Origin Resource Policy) enabled by default
-- Uses **Helpers** to simplify and DRY code
-- Hot reloading development server using `ts-node-dev`
-- Tabs over spaces... don't fight me! ([@garyhtou/prettier-config](https://github.com/garyhtou/prettier-config))
-- Loads environment variables from `.env` files
-- Handles and logs unexpected server errors by returning a 500 JSON response
+- Frontend Calendar: `https://assemble-calendar.hosted.garytou.dev/calendar/Frontend?authToken=v9n8Mwe84TG`
+- Frontend JSON: `https://assemble-calendar.hosted.garytou.dev/json/Frontend?authToken=v9n8Mwe84TG`
+- Everyone JSON: `https://assemble-calendar.hosted.garytou.dev/json?authToken=v9n8Mwe84TG`
 
 ---
 
-[**Express Typescript Simple Boilerplate**](https://github.com/garyhtou/express-typescript-simple-boilerplate) was created by [Gary Tou](https://garytou.com).
+this is still very much WIP. TODO:
+
+- add location
+- add descriptions of tasks
