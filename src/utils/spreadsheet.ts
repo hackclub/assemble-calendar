@@ -45,21 +45,18 @@ const load = async () => {
 	await doc.loadInfo(); // loads document properties and worksheets
 
 	const sheetsById = doc.sheetsById; // or use doc.sheetsById[id] or doc.sheetsByTitle[title]
-	const loadedSheets = sheets.reduce((obj, sheet) => {
-		const loadedSheet = sheetsById[sheet.id];
-		obj[sheet.name] = loadedSheet;
-		return obj;
-	}, data?.worksheets || {});
+	const loadedSheets: { [k: string]: GoogleSpreadsheetWorksheet } = {};
+	for (let s of sheets) {
+		const loadedSheet = sheetsById[s.id];
+		await loadedSheet.loadCells();
+
+		loadedSheets[s.name] = loadedSheet;
+	}
 
 	data = {
 		doc,
 		worksheets: loadedSheets,
 	};
-
-	// Load cells
-	await Promise.all(
-		Object.values(data.worksheets).map(async (s) => await s.loadCells())
-	);
 
 	return data;
 };
