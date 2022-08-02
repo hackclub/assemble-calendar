@@ -1,4 +1,5 @@
 import express, { Router, Request, Response } from 'express';
+import { allPersonal } from './helpers/runOfShow';
 
 const router: Router = express.Router();
 
@@ -11,19 +12,13 @@ router.get('/ping', (req: Request, res: Response) => {
 	res.send('pong! 🏓');
 });
 
-router.get('/', (req: Request, res: Response) => {
+router.get('/json', async (req: Request, res: Response) => {
+	console.log(await allPersonal());
+
 	const response = {
-		message:
-			'Hello World! Welcome to the Express Typescript Simple Boilerplate.',
-		boilerplate: {
-			repository:
-				'https://github.com/garyhtou/express-typescript-simple-boilerplate',
-			author: {
-				name: 'Gary Tou',
-				website: 'https://garytou.com',
-			},
-		},
+		personal: await allPersonal(),
 	};
+
 	res.json(response);
 });
 

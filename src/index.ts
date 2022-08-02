@@ -30,3 +30,6 @@ app.listen(PORT, () => {
 			'\n=============================\n'
 	);
 });
+
+import { getPersonal } from './helpers/runOfShow';
+getPersonal('gary');
