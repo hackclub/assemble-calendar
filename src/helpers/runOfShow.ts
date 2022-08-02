@@ -76,9 +76,9 @@ async function getTime(row: number) {
 
 	const dateKey: string = date.formattedValue.toString().toLowerCase();
 	const momentDate = DAYS_OF_WEEK_TO_MOMENT[dateKey];
-	const humanDate = `${momentDate.format('yyyy-mm-dd')} ${time.formattedValue}`;
+	const humanDate = `${momentDate.format('YYYY-MM-DD')} ${time.formattedValue}`;
 
-	return moment(humanDate, 'yyyy-mm-dd h:mm');
+	return moment(humanDate, 'YYYY-MM-DD h:mm');
 }
 
 export const getPersonal = async (name: string) => {
