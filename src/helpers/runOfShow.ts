@@ -169,11 +169,9 @@ export const STAFF = [
 export const allPersonal = async () => {
 	const data: { [k: string]: Awaited<ReturnType<typeof getPersonal>> } = {};
 
-	await Promise.all(
-		STAFF.map(async (n) => {
-			data[n] = await getPersonal(n);
-		})
-	);
+	for (let s of STAFF) {
+		data[s] = await getPersonal(s);
+	}
 
 	return data;
 };

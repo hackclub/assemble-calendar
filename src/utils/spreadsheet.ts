@@ -2,6 +2,7 @@ import {
 	GoogleSpreadsheet,
 	GoogleSpreadsheetWorksheet,
 } from 'google-spreadsheet';
+import moment, { Moment } from 'moment';
 
 var data: {
 	doc: GoogleSpreadsheet;
@@ -9,6 +10,7 @@ var data: {
 		[k: string]: GoogleSpreadsheetWorksheet;
 	};
 } = null;
+var cached_at: Moment = null;
 
 const sheets = [
 	{ id: 0, name: 'Main' },
@@ -37,7 +39,8 @@ const sheets = [
 
 // Gosh dang it we need top-level await
 const load = async () => {
-	if (data) return data;
+	if (data && !cached_expired()) return data;
+	console.log('getting sheets (cache expired)');
 
 	const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID);
 	doc.useApiKey(process.env.GOOGLE_API_KEY);
@@ -59,6 +62,10 @@ const load = async () => {
 	};
 
 	return data;
+};
+
+const cached_expired = () => {
+	return cached_at && moment().diff(cached_at, 'minutes', true) > 5;
 };
 
 export default load;

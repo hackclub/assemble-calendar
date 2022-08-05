@@ -35,7 +35,6 @@ router.get('/json/:name', ensureAuth, async (req: Request, res: Response) => {
 	const name = req.params.name;
 
 	const response = await getPersonal(name);
-	console.log(response);
 
 	res.json(response);
 });
