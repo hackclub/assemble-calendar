@@ -16,7 +16,7 @@ export const getPersonalCalendar = async (name: string, title?: string) => {
 		calendar.createEvent({
 			start: e.startTime,
 			end: e.endTime,
-			summary: e.title,
+			summary: e.title.replace('\n', ''),
 			// location: 'check the sheet',
 			// url: ''
 			// timezone: PT_TZ,
