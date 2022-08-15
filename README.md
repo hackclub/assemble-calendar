@@ -1,13 +1,14 @@
 # Assemble Calendar
 
-Assemble's **Run of Show** was planned on a Google Sheet. This is great
+Assemble's **Run of Show** was planned on a Google Sheet. It's amazing for
 large-scale planning and visualizing everyone's schedules. However, for
 individual staff members checking their schedules, scrolling through a massive
 Google Sheet is cumbersome especially while running about the venue.
 
 This Express.js server uses the Google Sheets API to pull spreadsheet data
 regarding the Run of Show, and converts that data into JSON and ICS (calendar
-import file).
+import file). The ICS link can be subscribed to in any calendar app and it's
+events will be synced up-to-date whenever they're changed on the Google Sheet.
 
 ## Usage
 
